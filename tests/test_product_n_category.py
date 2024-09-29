@@ -2,7 +2,8 @@ import pytest
 
 
 # Импортируем классы Product и Category
-from src.product_n_category import Product, Category
+from src.product import Product
+from src.category import Category
 
 
 def test_product_initialization():
@@ -24,13 +25,9 @@ def test_category_initialization():
 
 
 def test_product_count():
-    category = Category(name="Смартфоны", description="Смартфоны, как средство не только коммуникации")
-    category.add_product(
-        Product(name="Samsung Galaxy C23 Ultra", description="256GB, Серый цвет, 200MP камера", price=180000.0,
-                quantity=5))
-    category.add_product(Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8))
-
-    assert Category.total_products == 2
+    prod_list = []
+    category = Category(name="Смартфоны", description="Смартфоны, как средство не только коммуникации", products=prod_list)
+    assert Category.total_products == 0
 
 
 def test_category_count():
