@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class Category:
     name: str
     description: str
@@ -19,10 +20,9 @@ class Category:
     def products(self):
         product_str = ''
         for product in self.__products:
-            product_str += f'{product.name}, {product.price}. Остаток: {product.quantity}.'
+            product_str += f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.'
         return product_str
 
-    @products.setter
     def add_product(self, product: Product):
         self.__products.append(product)
         Category.total_products += 1

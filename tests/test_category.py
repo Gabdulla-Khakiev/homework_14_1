@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.product import Product
 
 
 def test_category_initialization():
@@ -17,6 +18,15 @@ def test_category_count():
     category2 = Category(name="Телевизоры", description="Современные телевизоры для удобного просмотра")
 
     assert Category.total_categories == 2
+
+
+def test_add_product():
+    # Проверка добавления продукта в категорию
+    category = Category(name="Смартфоны", description="Смартфоны для всех")
+    product = Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8)
+    category.add_product(product)
+
+    assert category.products == "Iphone 15, 210000.0 руб. Остаток: 8 шт."
 
 
 if __name__ == "__main__":
