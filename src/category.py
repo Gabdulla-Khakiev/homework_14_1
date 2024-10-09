@@ -23,8 +23,12 @@ class Category:
     def products(self):
         product_str = ''
         for product in self.__products:
-            product_str += str(product)
+            product_str += f"{str(product)}\n"
         return product_str
+
+    @property
+    def products_list(self):
+        return self.__products
 
     def add_product(self, product: Product):
         self.__products.append(product)
