@@ -3,6 +3,7 @@ import pytest
 from src.category_iterator import CategoryIterator
 from src.category import Category
 from src.product import Product
+from src.order import Order
 
 
 @pytest.fixture
@@ -33,3 +34,12 @@ def category_for_iterator():
 def category_iterator(category_for_iterator):
     iterator = CategoryIterator(category_for_iterator)
     return iterator
+
+
+product_for_order = Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8)
+
+
+@pytest.fixture
+def order():
+    order = Order(product_for_order, 5)
+    return order
