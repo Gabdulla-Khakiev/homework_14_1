@@ -37,7 +37,13 @@ def test_category_str():
     product2 = Product(name="Samsung Galaxy C23 Ultra", description="256GB, Серый цвет, 200MP камера", price=180000.0, quantity=5)
 
     category_with_products = Category(name="Смартфоны", description="Смартфоны для всех", products=[product1, product2])
-    assert str(category_with_products) == "Смартфоны, количество продуктов: 2 шт."
+    assert str(category_with_products) == "Смартфоны, количество продуктов: 13 шт."
+
+
+def test_add_product_error():
+    category = Category(name="Смартфоны", description="Смартфоны для всех")
+    with pytest.raises(TypeError):
+        category.add_product(1)
 
 
 if __name__ == "__main__":
