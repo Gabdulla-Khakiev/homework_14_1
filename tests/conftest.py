@@ -49,11 +49,6 @@ def smartphone2():
 
 
 @pytest.fixture
-def smartphone3():
-    return Smartphone("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14, 90.3, "Note 11", 1024, "Синий")
-
-
-@pytest.fixture
 def lawn_grass1():
     return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
 
