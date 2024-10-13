@@ -12,7 +12,7 @@ class Smartphone(Product):
 
     def __add__(self, other):
         if type(other) is Smartphone:
-            total_products_price = self.__price * self.quantity + other.__price * other.quantity
+            total_products_price = self.price * self.quantity + other.price * other.quantity
             return total_products_price
         else:
             raise TypeError
