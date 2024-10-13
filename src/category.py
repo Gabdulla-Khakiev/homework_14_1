@@ -22,7 +22,7 @@ class Category:
 
     @property
     def products(self):
-        product_str = ''
+        product_str = ""
         for product in self.__products:
             product_str += f"{str(product)}"
         return product_str

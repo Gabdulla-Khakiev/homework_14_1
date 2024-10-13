@@ -1,10 +1,10 @@
 import pytest
 
-from src.category_iterator import CategoryIterator
 from src.category import Category
+from src.category_iterator import CategoryIterator
+from src.lawn_grass import LawnGrass
 from src.product import Product
 from src.smartphone import Smartphone
-from src.lawn_grass import LawnGrass
 
 
 @pytest.fixture
@@ -14,8 +14,9 @@ def product1():
 
 @pytest.fixture
 def product2():
-    return Product(name="Samsung Galaxy C23 Ultra", description="256GB, Серый цвет, 200MP камера", price=180000.0,
-                   quantity=5)
+    return Product(
+        name="Samsung Galaxy C23 Ultra", description="256GB, Серый цвет, 200MP камера", price=180000.0, quantity=5
+    )
 
 
 @pytest.fixture
@@ -25,9 +26,13 @@ def category_for_iterator():
         description="Смартфоны для всех",
         products=[
             Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8),
-            Product(name="Samsung Galaxy C23 Ultra", description="256GB, Серый цвет, 200MP камера", price=180000.0,
-                    quantity=5)
-        ]
+            Product(
+                name="Samsung Galaxy C23 Ultra",
+                description="256GB, Серый цвет, 200MP камера",
+                price=180000.0,
+                quantity=5,
+            ),
+        ],
     )
 
 
@@ -44,8 +49,9 @@ def smartphone1():
 
 @pytest.fixture
 def smartphone2():
-    return Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5,
-                      "S23 Ultra", 256, "Серый")
+    return Smartphone(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
+    )
 
 
 @pytest.fixture

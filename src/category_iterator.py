@@ -1,7 +1,3 @@
-from src.product import Product
-from src.category import Category
-
-
 class CategoryIterator:
 
     def __init__(self, category_obj):
