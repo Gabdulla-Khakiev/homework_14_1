@@ -35,3 +35,5 @@ class Category:
         if isinstance(product, Product):
             self.__products.append(product)
             Category.total_products += 1
+        else:
+            raise TypeError
