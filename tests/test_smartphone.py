@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_smartphone_init(smartphone1):
     assert smartphone1.name == "Iphone 15"
     assert smartphone1.description == "512GB, Gray space"
@@ -11,3 +14,8 @@ def test_smartphone_init(smartphone1):
 
 def test_smartphones_add(smartphone1, smartphone2):
     assert smartphone1 + smartphone2 == 2580000.0
+
+
+def test_smartphones_add_error(smartphone1, smartphone2):
+    with pytest.raises(TypeError):
+        result = smartphone1 + 1
