@@ -4,7 +4,7 @@ from src.product import Product
 
 class Order(BaseCategory):
     def __init__(self, product: Product, quantity: int):
-        super().__init__(name=product.name, description=product.description)
+        super().__init__(product.name, product.description)
         self.product = product
         self.quantity = quantity
         self.total_price = self.calculate_total_price()
