@@ -9,3 +9,10 @@ class Smartphone(Product):
         self.model = model
         self.memory = memory
         self.color = color
+
+    def __add__(self, other):
+        if type(other) is Smartphone:
+            total_products_price = self.__price * self.quantity + other.__price * other.quantity
+            return total_products_price
+        else:
+            raise TypeError

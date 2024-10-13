@@ -32,5 +32,6 @@ class Category:
         return self.__products
 
     def add_product(self, product: Product):
-        self.__products.append(product)
-        Category.total_products += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.total_products += 1
