@@ -29,5 +29,16 @@ def test_add_product():
     assert category.products == "Iphone 15, 210000.0 руб. Остаток: 8 шт."
 
 
+def test_category_str():
+    category_empty = Category(name="Смартфоны", description="Смартфоны для всех")
+    assert str(category_empty) == "Смартфоны, количество продуктов: 0 шт."
+
+    product1 = Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8)
+    product2 = Product(name="Samsung Galaxy C23 Ultra", description="256GB, Серый цвет, 200MP камера", price=180000.0, quantity=5)
+
+    category_with_products = Category(name="Смартфоны", description="Смартфоны для всех", products=[product1, product2])
+    assert str(category_with_products) == "Смартфоны, количество продуктов: 2 шт."
+
+
 if __name__ == "__main__":
     pytest.main()
