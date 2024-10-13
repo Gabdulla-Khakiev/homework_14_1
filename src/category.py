@@ -1,7 +1,8 @@
 from src.product import Product
+from src.base_category import BaseCategory
 
 
-class Category:
+class Category(BaseCategory):
     name: str
     description: str
     products: list
@@ -9,8 +10,7 @@ class Category:
     total_products = 0
 
     def __init__(self, name, description, products=None):
-        self.name = name
-        self.description = description
+        super().__init__(name, description)
         self.__products = products if products else []
 
         Category.total_categories += 1
