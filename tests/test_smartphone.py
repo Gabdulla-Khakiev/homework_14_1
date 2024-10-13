@@ -16,6 +16,6 @@ def test_smartphones_add(smartphone1, smartphone2):
     assert smartphone1 + smartphone2 == 2580000.0
 
 
-def test_smartphones_add_error(smartphone1, smartphone2):
+def test_smartphones_add_error(smartphone1):
     with pytest.raises(TypeError):
         result = smartphone1 + 1
