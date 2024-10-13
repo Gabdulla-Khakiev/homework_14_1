@@ -11,7 +11,7 @@ class LawnGrass(Product):
 
     def __add__(self, other):
         if type(other) is LawnGrass:
-            total_products_price = self.__price * self.quantity + other.__price * other.quantity
+            total_products_price = self.price * self.quantity + other.price * other.quantity
             return total_products_price
         else:
             raise TypeError
