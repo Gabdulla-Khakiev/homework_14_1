@@ -1,9 +1,11 @@
 import pytest
 
+from src.category_iterator import CategoryIterator
 from src.category import Category
 from src.category_iterator import CategoryIterator
 from src.lawn_grass import LawnGrass
 from src.product import Product
+from src.order import Order
 from src.smartphone import Smartphone
 
 
@@ -62,3 +64,12 @@ def lawn_grass1():
 @pytest.fixture
 def lawn_grass2():
     return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+
+
+product_for_order = Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8)
+
+
+@pytest.fixture
+def order():
+    order = Order(product_for_order, 5)
+    return order
