@@ -22,9 +22,9 @@ class Category(BaseCategory):
 
     @property
     def products(self):
-        product_str = ''
+        product_str = ""
         for product in self.__products:
-            product_str += f"{str(product)}\n"
+            product_str += f"{str(product)}"
         return product_str
 
     @property
@@ -32,5 +32,8 @@ class Category(BaseCategory):
         return self.__products
 
     def add_product(self, product: Product):
-        self.__products.append(product)
-        Category.total_products += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.total_products += 1
+        else:
+            raise TypeError

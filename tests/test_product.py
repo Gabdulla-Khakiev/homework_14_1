@@ -1,14 +1,15 @@
-import pytest
 from unittest.mock import patch
 
+import pytest
 
-from src.product import Product
 from src.category import Category
+from src.product import Product
 
 
 def test_product_initialization():
-    product = Product(name="Samsung Galaxy C23 Ultra", description="256GB, Серый цвет, 200MP камера", price=180000.0,
-                      quantity=5)
+    product = Product(
+        name="Samsung Galaxy C23 Ultra", description="256GB, Серый цвет, 200MP камера", price=180000.0, quantity=5
+    )
 
     assert product.name == "Samsung Galaxy C23 Ultra"
     assert product.description == "256GB, Серый цвет, 200MP камера"
@@ -18,18 +19,15 @@ def test_product_initialization():
 
 def test_product_count():
     prod_list = []
-    category = Category(name="Смартфоны", description="Смартфоны, как средство не только коммуникации", products=prod_list)
+    category = Category(
+        name="Смартфоны", description="Смартфоны, как средство не только коммуникации", products=prod_list
+    )
     assert Category.total_products == 0
 
 
 def test_new_product_creation():
     products = []
-    product_data = {
-        "name": "Iphone 15",
-        "description": "512GB, Gray space",
-        "price": 210000.0,
-        "quantity": 8
-    }
+    product_data = {"name": "Iphone 15", "description": "512GB, Gray space", "price": 210000.0, "quantity": 8}
 
     new_product = Product.new_product(product_data, products)
 
@@ -49,7 +47,7 @@ def test_existing_product_update():
         "name": "Iphone 15",
         "description": "512GB, Gray space",
         "price": 220000.0,  # более высокая цена
-        "quantity": 5  # добавление к количеству
+        "quantity": 5,  # добавление к количеству
     }
 
     updated_product = Product.new_product(product_data, products)
@@ -59,7 +57,7 @@ def test_existing_product_update():
     assert updated_product.quantity == 13  # проверка обновления количества
 
 
-@patch('builtins.input', return_value='y')
+@patch("builtins.input", return_value="y")
 def test_price_decrease_confirmation_yes(mock_input):
     product = Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8)
 
@@ -68,7 +66,7 @@ def test_price_decrease_confirmation_yes(mock_input):
     assert product.price == 190000.0  # цена изменилась, т.к. ввели "y"
 
 
-@patch('builtins.input', return_value='n')
+@patch("builtins.input", return_value="n")
 def test_price_decrease_confirmation_no(mock_input):
     product = Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8)
 
@@ -96,8 +94,9 @@ def test_product_str():
 
 def test_product_add():
     product1 = Product(name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8)
-    product2 = Product(name="Samsung Galaxy C23 Ultra", description="256GB, Серый цвет, 200MP камера", price=180000.0,
-                       quantity=5)
+    product2 = Product(
+        name="Samsung Galaxy C23 Ultra", description="256GB, Серый цвет, 200MP камера", price=180000.0, quantity=5
+    )
 
     total_price = product1 + product2
     expected_total = 210000.0 * 8 + 180000.0 * 5  # Общая стоимость всех продуктов

@@ -35,7 +35,7 @@ class Product(BaseProduct, PrintMixin):
             name=product_data.get("name"),
             description=product_data.get("description"),
             price=product_data.get("price"),
-            quantity=product_data.get("quantity")
+            quantity=product_data.get("quantity"),
         )
         products.append(new_product)
         return new_product
