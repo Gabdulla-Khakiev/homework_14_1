@@ -22,7 +22,7 @@ def product2():
 
 
 @pytest.fixture
-def category_for_iterator():
+def category1():
     return Category(
         name="Смартфоны",
         description="Смартфоны для всех",
@@ -39,8 +39,8 @@ def category_for_iterator():
 
 
 @pytest.fixture
-def category_iterator(category_for_iterator):
-    iterator = CategoryIterator(category_for_iterator)
+def category_iterator(category1):
+    iterator = CategoryIterator(category1)
     return iterator
 
 
