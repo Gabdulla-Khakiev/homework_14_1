@@ -37,3 +37,14 @@ class Category(BaseCategory):
             Category.total_products += 1
         else:
             raise TypeError
+
+    def avg_price(self):
+        try:
+            if not self.__products:
+                return 0
+
+            avg_price = sum(product.price for product in self.__products) / len(self.__products)
+            return avg_price
+
+        except ZeroDivisionError:
+            return 0
