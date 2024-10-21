@@ -73,3 +73,10 @@ product_for_order = Product(name="Iphone 15", description="512GB, Gray space", p
 def order():
     order = Order(product_for_order, 5)
     return order
+
+
+@pytest.fixture
+def category_without_product():
+    return Category(
+        name="Example Category",
+        description="Some description")
