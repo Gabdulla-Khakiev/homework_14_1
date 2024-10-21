@@ -50,11 +50,9 @@ class Category(BaseCategory):
 
     def avg_price(self):
         try:
-            if not self.__products:
-                return 0
-
-            avg_price = sum(product.price for product in self.__products) / len(self.__products)
-            return avg_price
+            total_price = sum(product.price * product.quantity for product in self.__products)
+            avg_price = total_price / sum(product.quantity for product in self.__products)
+            return round(avg_price, 1)
 
         except ZeroDivisionError:
             return 0

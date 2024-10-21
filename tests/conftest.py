@@ -78,5 +78,6 @@ def order():
 @pytest.fixture
 def category_without_product():
     return Category(
-        name="Example Category",
-        description="Some description")
+        name="Смартфоны",
+        description="Смартфоны для всех",
+        products=[])
