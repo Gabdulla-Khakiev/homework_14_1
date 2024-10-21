@@ -50,5 +50,20 @@ def test_add_product_error():
         category.add_product(1)
 
 
+def test_avg_price(category1, category_without_product):
+    assert category1.avg_price() == 198461.5
+    assert category_without_product.avg_price() == 0
+
+
+def test_custom_exception(capsys, category1):
+    assert len(category1.products_list) == 2
+
+    prod_add = Product(name="Iphone 14", description="512GB, Gray space", price=200000.0, quantity=0)
+    category1.add_product(prod_add)
+    message = capsys.readouterr()
+    assert message.out.strip().split('\n')[-2] == "Товар с нулевым количеством не может быть добавлен."
+    assert message.out.strip().split('\n')[-1] == "Обработка добавления товара завершена."
+
+
 if __name__ == "__main__":
     pytest.main()
