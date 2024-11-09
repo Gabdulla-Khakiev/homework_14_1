@@ -1,5 +1,6 @@
 from src.product import Product
 from src.base_category import BaseCategory
+from src.exceptions import ZeroQuantityError
 
 
 class Category(BaseCategory):
@@ -33,7 +34,25 @@ class Category(BaseCategory):
 
     def add_product(self, product: Product):
         if isinstance(product, Product):
-            self.__products.append(product)
-            Category.total_products += 1
+            try:
+                if product.quantity == 0:
+                    raise ZeroQuantityError("Товар с нулевым количеством не может быть добавлен.")
+            except ZeroQuantityError as e:
+                print(str(e))
+            else:
+                self.__products.append(product)
+                Category.total_products += 1
+                print(f"Товар '{product.name}' добавлен в категорию '{self.name}'.")
+            finally:
+                print("Обработка добавления товара завершена.")
         else:
             raise TypeError
+
+    def avg_price(self):
+        try:
+            total_price = sum(product.price * product.quantity for product in self.__products)
+            avg_price = total_price / sum(product.quantity for product in self.__products)
+            return round(avg_price, 1)
+
+        except ZeroDivisionError:
+            return 0
